@@ -61,8 +61,8 @@ namespace MyMusic.API
             services.AddSwaggerGen(c => {
                 c.SwaggerDoc("v1", new OpenApiInfo
                 {
-                    Title = "Put title here",
-                    Description = "DotNet Core Api 3 - with swagger"
+                    Title = "MyMusic",
+                    Description = ""
                 });
             });
 
@@ -93,7 +93,7 @@ namespace MyMusic.API
             app.UseSwaggerUI(c =>
             {
                 c.RoutePrefix = "";
-                c.SwaggerEndpoint("/swagger/v1/swagger.json", "My Music V1");
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "MyMusic V1");
             });
         }
     }
