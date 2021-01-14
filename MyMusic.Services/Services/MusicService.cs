@@ -1,5 +1,6 @@
-﻿using MyMusic.Core.Models;
-using MyMusic.Core.Repository;
+﻿using MyMusic.Core;
+using MyMusic.Core.Models;
+using MyMusic.Core.Repositories;
 using MyMusic.Core.Services;
 using System;
 using System.Collections.Generic;
@@ -43,7 +44,7 @@ namespace MyMusic.Services.Services
         public async Task<IEnumerable<Music>> GetMusicsByArtistId(int artistId)
         {
             return await _unitOfWork.Musics
-                .GetallWithArtistByArtistIdAsync(artistId);
+                .GetAllWithArtistByArtistIdAsync(artistId);
         }
 
         public async Task UpdateMusic(Music musicToBeUpdated, Music music)

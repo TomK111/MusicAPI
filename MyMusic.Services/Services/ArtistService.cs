@@ -1,5 +1,6 @@
-﻿using MyMusic.Core.Models;
-using MyMusic.Core.Repository;
+﻿using MyMusic.Core;
+using MyMusic.Core.Models;
+using MyMusic.Core.Repositories;
 using MyMusic.Core.Services;
 using System;
 using System.Collections.Generic;

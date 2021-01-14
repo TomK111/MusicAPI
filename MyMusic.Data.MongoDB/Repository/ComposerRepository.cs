@@ -1,7 +1,7 @@
 ﻿using MongoDB.Bson;
 using MongoDB.Driver;
 using MyMusic.Core.Models;
-using MyMusic.Core.Repository;
+using MyMusic.Core.Repositories;
 using MyMusic.Data.MongoDB.Setting;
 using System;
 using System.Collections.Generic;

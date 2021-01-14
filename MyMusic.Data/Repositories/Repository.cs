@@ -1,5 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using MyMusic.Core.Repository;
+using MyMusic.Core.Repositories;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace MyMusic.Data.Repositories
 {
-    public class Repository<TEntity>:IRepository<TEntity> where TEntity: class
+    public class Repository<TEntity> : IRepository<TEntity> where TEntity : class
     {
         protected readonly DbContext Context;
 
@@ -17,7 +17,6 @@ namespace MyMusic.Data.Repositories
         {
             this.Context = context;
         }
-
         public async Task AddAsync(TEntity entity)
         {
             await Context.Set<TEntity>().AddAsync(entity);

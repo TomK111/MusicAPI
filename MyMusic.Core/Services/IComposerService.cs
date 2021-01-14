@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace MyMusic.Core.Services
 {
-   public interface IComposerService
-   {
+    public interface IComposerService
+    {
         Task<IEnumerable<Composer>> GetAllComposers();
         Task<Composer> GetComposerById(string id);
         Task<Composer> Create(Composer composer);

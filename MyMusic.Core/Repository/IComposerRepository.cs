@@ -4,9 +4,9 @@ using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MyMusic.Core.Repository
+namespace MyMusic.Core.Repositories
 {
-   public interface IComposerRepository
+    public interface IComposerRepository
     {
         Task<IEnumerable<Composer>> GetAllComposers();
         Task<Composer> GetComposerById(string id);

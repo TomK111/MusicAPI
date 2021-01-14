@@ -12,13 +12,11 @@ namespace MyMusic.Data
 
         public MyDbContext(DbContextOptions<MyDbContext> options) : base(options)
         {
-
         }
-
         protected override void OnModelCreating(ModelBuilder builder)
         {
             builder
-                .ApplyConfiguration(new MusicConfiguration());
+              .ApplyConfiguration(new MusicConfiguration());
 
             builder
                 .ApplyConfiguration(new ArtistConfiguration());

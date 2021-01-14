@@ -13,6 +13,5 @@ namespace MyMusic.Core.Services
         Task<Artist> CreateArtist(Artist newArtist);
         Task UpdateArtist(Artist artistToBeUpdated, Artist artist);
         Task DeleteArtist(Artist artist);
-
     }
 }
