@@ -18,8 +18,7 @@ using MyMusic.Core;
 using MyMusic.Core.Repositories;
 using MyMusic.Core.Services;
 using MyMusic.Data;
-using MyMusic.Data.MongoDB.Repository;
-using MyMusic.Data.MongoDB.Setting;
+
 using MyMusic.Services.Services;
 
 namespace MyMusic.API
@@ -37,26 +36,14 @@ namespace MyMusic.API
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
+
             //Configuration for SQL server
             services.AddDbContext<MyDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("Default"), x => x.MigrationsAssembly("MyMusic.Data")));
             services.AddScoped<IUnitOfWork, UnitOfWork>();
             services.AddTransient<IMusicService, MusicService>();
             services.AddTransient<IArtistService, ArtistService>();
 
-            // Configuration for MongoDB
-            services.Configure<Settings>(
-           options =>
-           {
-               options.ConnectionString = Configuration.GetValue<string>("MongoDB:ConnectionString");
-               options.Database = Configuration.GetValue<string>("MongoDB:Database");
-           });
-
-            services.AddSingleton<IMongoClient, MongoClient>(
-            _ => new MongoClient(Configuration.GetValue<string>("MongoDB:ConnectionString")));
-
-            services.AddTransient<IDatabaseSettings, DatabaseSettings>();
-            services.AddScoped<IComposerRepository, ComposerRepository>();
-            services.AddTransient<IComposerService, ComposerService>();
+           
             // Swagger
             services.AddSwaggerGen(c => {
                 c.SwaggerDoc("v1", new OpenApiInfo
